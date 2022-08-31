@@ -35,13 +35,14 @@
                         $('#imagenes_marcas').append('<div class="text-center"> CARGANDO ... </div>');
                     },
                     success: function(marcas){
-                        $('#marcas_vehiculos').empty();
                         $('#imagenes_marcas').empty();
+                        $('#marcas_select').empty();
+                        $('#anios_vehiculo_select').empty();
                         marcas.forEach(marca => {
-                            $('#marcas_vehiculos').append(`
-                                <li><a class="dropdown-item" href="#">`+marca.marcanombre+`</a></li>
-                            `);
+                            
                             $('#imagenes_marcas').append("<div class='col-md-3 col-sm-6 animate__animated animate__bounce animate__delay-2s'><img src='http://panchoserver.ddns.net/storage/"+marca.urlfoto+"' alt='' class='imagen_marca_banner'> </div>");
+                            
+                            $('#marcas_select').append("<option value='"+marca.idmarcavehiculo+"'>"+marca.marcanombre+" </option>");
                         });
                         
                     },
@@ -59,10 +60,16 @@
                     url: 'http://panchoserver.ddns.net/api/familias',
                     success: function(familias){
                         var r = [];
+                        var r_buscador = [];
                         familias.forEach(familia => r.push(familia.nombrefamilia));
                         $( "#tags" ).autocomplete({
                             source: r
                             });
+
+                        $('#familias_select').empty();
+                        familias.forEach(familia => $('#familias_select').append(`<option value=`+familia.id+`>`+familia.nombrefamilia+` </option>`));
+                        
+                        
                     },
                     error: function(error){
                         console.log(error.responseText);
@@ -74,7 +81,76 @@
             let valor = $('#tags').val();
             alert(valor);
         }
-        
+
+        function dame_modelos(){
+            var x = document.getElementById("marcas_select").value;
+            let url = 'http://panchoserver.ddns.net/api/'+x+'/damemodelos';
+            
+            $.ajax({
+                type:'get',
+                url: url,
+                beforeSend: function(){
+                    $('#modelos_select').empty();
+                    $('#anios_vehiculo_select').empty();
+                    $('#modelos_select').append('<option>Cargando ... </option>');
+                },
+                success: function(modelos){
+      
+                    
+                    $('#modelos_select').empty();
+                    modelos.forEach(modelo => {
+                     
+                        $('#modelos_select').append(`<option value=`+modelo.id+` >`+modelo.modelonombre+` </option>`);
+                        $('#anios_vehiculo_select').append(`<option value=`+modelo.anios_vehiculo+` >`+modelo.anios_vehiculo+` </option>`);
+                    });
+                },
+                error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+        }
+
+        function dameaniosvehiculo(){
+            var x = document.getElementById("modelos_select").value;
+            let url = 'http://panchoserver.ddns.net/api/'+x+'/dameaniosvehiculo';
+            
+            $.ajax({
+                type:'get',
+                url: url,
+                beforeSend: function(){
+                    $('#anios_vehiculo_select').empty();
+                    
+                    $('#anios_vehiculo_select').append('<option>Cargando ... </option>');
+                },
+                success: function(modelo){
+                    $('#anios_vehiculo_select').empty();
+                    $('#anios_vehiculo_select').append(`<option value=`+modelo.anios_vehiculo+` >`+modelo.anios_vehiculo+` </option>`);
+                },
+                error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+        }
+
+        function busqueda_principal(){
+            let modelo = $('#modelos_select').val();
+            let familia = $('#familias_select').val();
+            // Simulate a mouse click:
+            if(modelo == 0){
+                alert('Debe ingresar un modelo');
+                return false;
+            }else{
+                window.location.href = "/busqueda_por_modelo/"+modelo+"/"+familia;
+            }
+           
+        }
+
+        function buscar_por_oem(){
+            let oem = $('#buscar_por_oem').val();
+            
+            window.location.href = "/busqueda_por_oem/"+oem;
+        }
+                
         </script>
         @yield('javascript')
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">

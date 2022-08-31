@@ -27,3 +27,5 @@ Route::get('/prueba', [App\Http\Controllers\prueba_controlador::class, 'index'])
 Route::get('/repuestos', [App\Http\Controllers\prueba_controlador::class, 'repuestos'])->name('repuestos');
 Route::get('/repuesto/{id}', [App\Http\Controllers\prueba_controlador::class, 'repuesto'])->name('repuesto');
 Route::get('/contacto', [App\Http\Controllers\prueba_controlador::class, 'contacto'])->name('contacto');
+Route::get('/busqueda_por_modelo/{modelo}/{familia}', [App\Http\Controllers\prueba_controlador::class, 'busqueda_por_modelo'])->name('busqueda_por_modelo');
+Route::get('/busqueda_por_oem/{oem}', [App\Http\Controllers\prueba_controlador::class, 'busqueda_por_oem']);

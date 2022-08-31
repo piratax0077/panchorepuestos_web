@@ -22,4 +22,12 @@ class prueba_controlador extends Controller
     public function repuesto($id){
         return view('repuesto',['repuesto_id' => $id]);
     }
+
+    public function busqueda_por_modelo($modelo,$familia){
+        return view('busqueda_por_modelo',['idmodelo' => $modelo,'familia' => $familia]);
+    }
+
+    public function busqueda_por_oem($oem){
+        return view('busqueda_por_oem',['oem' => $oem]);
+    }
 }

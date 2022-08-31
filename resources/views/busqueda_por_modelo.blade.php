@@ -1,19 +1,33 @@
 @extends('layouts.app')
 
-
 @section('javascript')
 <script>
-    $( function() {
-        $.ajax({
-                    type:'get',
-                    url: 'http://panchoserver.ddns.net/api/repuestos',
-                    beforeSend: function(){
-                        $('#mensaje').html('CARGANDO ...');
-                    },
-                    success: function(repuestos){
-                        let contador = 0;
+
+        //Se recupera la url actual
+        var URLactual = window.location;
+        //Convertimos la url a string para poder rescatar el id del repuesto
+        var strurl = String(URLactual);
+        //Separamos el string y dejamos solo el id
+        var id_array = strurl.split('/');
+        var modelo = id_array[4];
+        var familia = id_array[5];
+    
+        busqueda_principal(modelo);
+
+        function busqueda_principal(modelo){
+
+            let url = 'http://panchoserver.ddns.net/api/buscar_modelo/'+modelo+'/'+familia;
+            
+            $.ajax({
+                type:'get',
+                url: url,
+                beforeSend: function(){
+                    
+                },
+                success: function(repuestos){
+                    let contador = 0;
                         let fotos = repuestos[1];
-                        $('#mensaje').html('LISTO');
+                        
                       
                         let container = $('#pagination');
                         container.pagination({
@@ -45,24 +59,21 @@
                                 $("#container").html(dataHtml);
                             }
                         });
-
-                    },
-                    error: function(error){
-                        console.log(error.responseText);
-                    }
-                });
-  } );
-   
-
-
+                },
+                error: function(error){
+                    console.log(error.responseText);
+                }
+            })
+        }
 </script>
 @endsection
+
 @section('content')
-<h1>Repuestos</h1>
+
 <p id="mensaje"></p>
-<section>
+<section class="container">
+    <h1>Repuestos</h1>
     <div id="container"></div>
     <div id="pagination"></div>
 </section>
-
 @endsection
