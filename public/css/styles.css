@@ -1,5 +1,5 @@
 .logo_header{
-    width: 150px;
+    width: 165px;
 }
 
 .navbar {
@@ -15,6 +15,10 @@
 
   }
 
+.image_transbank{
+  width: 600px;
+}
+
   .banner{
     width: 100%;
     height: auto;
@@ -23,7 +27,7 @@
   }
 
   .imagen_marca_banner{
-    width: 150px;
+    width: 130px;
   }
 
   footer{
@@ -32,6 +36,10 @@
 
   .repuestos_image{
     height: 250px;
+  }
+
+  .card-title{
+    height: 70px;
   }
 
 
@@ -43,8 +51,33 @@
 
   #buscador{
     min-height: 300px;
+    
+  }
+  
+  .carousel-content {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 900px;
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
   }
 
+  .btn_contacto_whatsapp{
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100px;
+  }
   /* === BASE HEADING === */ 
 
 h1 {
@@ -180,12 +213,99 @@ h1 em {
     margin-bottom: 0.25em;
 }
 
+.titulo_uno_slider{
+  font-size: 40px;
+}
+
+.titulo_dos_slider{
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.enlace_whastapp{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
 
 /*Diseño responsive*/ 
 
-  @media (max-width: 384px) {
+@media (max-width: 1024px) {
   .image_transbank {
+    width: 510px;
+  }
+
+}
+
+@media (max-width: 915px) {
+  .image_transbank {
+    width: 490px;
+  }
+
+  .logo_footer{
+    width: 420px;
+  }
+
+}
+
+@media (max-width: 896px) {
+  .image_transbank {
+    width: 450px;
+  }
+
+}
+
+@media (max-width: 820px) {
+  .image_transbank {
+    width: 410px;
+  }
+  .logo_footer{
+    width: 370px;
+  }
+}
+
+  @media (max-width: 415px) {
+  .image_transbank {
+    width: 390px;
+  }
+  .logo_footer{
     width: 300px;
   }
 }
+
+@media (max-width: 391px){
+.carousel-content{
+  width: 390px;
+}
+.titulo_uno_slider{
+  font-size: 15px;
+}
+.titulo_dos_slider{ 
+  font-size: 13px;
+}
+
+.twelve h1{
+  font-size: 18px;
+}
+}
+
+
+
+@media (max-width: 375px){
+  .image_transbank {
+    width: 335px;
+  }
+
+  .logo_footer{
+    width: 200px;
+  }
+  }
+
+  @media (max-width: 280px){
+    h1{
+      font-size: 30px;
+    }
+    }
+  
 

@@ -26,7 +26,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script>
             
-            window.onload = function() {
+            function dame_marcas(){
                 $.ajax({
                     type:'get',
                     url: 'http://panchoserver.ddns.net/api/ruta_prueba',
@@ -37,10 +37,9 @@
                     success: function(marcas){
                         $('#imagenes_marcas').empty();
                         $('#marcas_select').empty();
-                        $('#anios_vehiculo_select').empty();
                         marcas.forEach(marca => {
                             
-                            $('#imagenes_marcas').append("<div class='col-md-3 col-sm-6 animate__animated animate__bounce animate__delay-2s'><img src='http://panchoserver.ddns.net/storage/"+marca.urlfoto+"' alt='' class='imagen_marca_banner'> </div>");
+                            $('#imagenes_marcas').append("<div class='col-md-2 col-sm-6 animate__animated animate__bounce animate__delay-2s'><img src='http://panchoserver.ddns.net/storage/"+marca.urlfoto+"' alt='' class='imagen_marca_banner'> </div>");
                             
                             $('#marcas_select').append("<option value='"+marca.idmarcavehiculo+"'>"+marca.marcanombre+" </option>");
                         });
@@ -50,7 +49,13 @@
                         console.log(error.responseText);
                     }
                 });
-            damefamilias();
+            }
+        
+
+        function activar_selects(){
+            $('#marcas_select').removeAttr('disabled');
+            $('#modelos_select').attr('disabled');
+            $('#anios_vehiculo_select').attr('disabled');
         }
 
         function damefamilias(){
@@ -58,16 +63,15 @@
             $.ajax({
                     type:'get',
                     url: 'http://panchoserver.ddns.net/api/familias',
+                    beforeSend: function(){
+                        $('#familias_select').empty();
+                        $('#familias_select').append('<option value="0">Cargando... </option>');
+                    },
                     success: function(familias){
-                        var r = [];
-                        var r_buscador = [];
-                        familias.forEach(familia => r.push(familia.nombrefamilia));
-                        $( "#tags" ).autocomplete({
-                            source: r
-                            });
+                        
 
                         $('#familias_select').empty();
-                        familias.forEach(familia => $('#familias_select').append(`<option value=`+familia.id+`>`+familia.nombrefamilia+` </option>`));
+                        familias.forEach(familia => $('#familias_select').append(`<option value=`+familia.id+` class="text-uppercase">`+familia.nombrefamilia+` </option>`));
                         
                         
                     },
@@ -96,7 +100,7 @@
                 },
                 success: function(modelos){
       
-                    
+                    $('#modelos_select').removeAttr('disabled');
                     $('#modelos_select').empty();
                     modelos.forEach(modelo => {
                      
@@ -147,10 +151,15 @@
 
         function buscar_por_oem(){
             let oem = $('#buscar_por_oem').val();
-            
+            if( oem === '' || oem.trim() == 0){
+                alert('Debe ingresar un oem');
+                return false;
+            }
             window.location.href = "/busqueda_por_oem/"+oem;
         }
                 
+        dame_marcas();
+            damefamilias();
         </script>
         @yield('javascript')
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -169,6 +178,8 @@
             
         </div>
         @include('fragm.footer')
+        
+        <a href="https://api.whatsapp.com/send?phone=56997158871" class="btn_contacto_whatsapp" style="text-decoration: none;"><img src="{{asset("assets/images/probleme-notifications-whatsapp4.png")}}" alt="wzap" style="width: 80px;"></a>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>

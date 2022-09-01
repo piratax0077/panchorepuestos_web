@@ -58,11 +58,14 @@
 </script>
 @endsection
 @section('content')
-<h1>Repuestos</h1>
-<p id="mensaje"></p>
-<section>
-    <div id="container"></div>
-    <div id="pagination"></div>
-</section>
+<div class="container">
+    <h1>Repuestos</h1>
+    <p id="mensaje"></p>
+    <section>
+        <div id="container"></div>
+        <div id="pagination"></div>
+    </section>
+</div>
+
 
 @endsection

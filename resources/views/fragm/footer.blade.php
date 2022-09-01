@@ -9,8 +9,8 @@
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
-          <div class="rounded-circle bg-dark shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-            <img src="http://panchoserver.ddns.net/storage/imagenes/logoOficial.jpeg" height="60" alt=""
+          <div class="rounded-circle bg-light shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
+            <img src="http://panchoserver.ddns.net/storage/imagenes/logo_pos.png" height="60" alt="" style="width: 110px;"
                  loading="lazy" />
           </div>
 
@@ -37,40 +37,11 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4 text-warning">Productos</h5>
-
-          <ul class="list-unstyled">
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>When your pet is missing</a>
-            </li>
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>Recently found</a>
-            </li>
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>How to adopt?</a>
-            </li>
-            
-          </ul>
-        </div>
-        <!--Grid column-->
+        
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4 text-warning">Marcas</h5>
-
-          <ul class="list-unstyled">
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>General information</a>
-            </li>
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>About the shelter</a>
-            </li>
-            <li class="mb-4">
-              <a href="#!" class="text-warning"><i class="fa-solid fa-car text-warning mr-2"></i>Statistic data</a>
-            </li>
-          </ul>
+        <div class="col-lg-6 col-md-6 mb-4 mb-md-0 text-center">
+          <img src="{{asset('assets/images/logo_negro.jpeg')}}" alt="logo" class="logo_footer">
         </div>
         <!--Grid column-->
 

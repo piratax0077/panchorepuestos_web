@@ -45,8 +45,7 @@
                                         <h5 class="card-title">`+item.descripcion+`</h5>
                                         <p class="card-text">$ `+item.precio_venta+`</p>
                                         <p class="card-text">Stock: `+item.stock_actual+`</p>
-                                        <a href="#" class="btn btn-warning">Añadir al carrito</a>
-                                        <a href="/repuesto/`+item.id+`" class="btn btn-primary">Descripción</a>
+                                        <a href="/repuesto/`+item.id+`" class="btn btn-warning w-100">Descripción</a>
                                     </div>
                                     </div>
                                     </div>
@@ -71,9 +70,28 @@
 @section('content')
 
 <p id="mensaje"></p>
-<section class="container">
-    <h1>Repuestos</h1>
-    <div id="container"></div>
-    <div id="pagination"></div>
+<section class="container py-5">
+    <div class="row">
+        <div class="col-md-2">
+            <p>FIltros</p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Checked checkbox
+                </label>
+              </div>
+        </div>
+        <div class="col-md-10">
+            <div id="container"></div>
+            <div id="pagination"></div>
+        </div>
+    </div>
+    
 </section>
 @endsection

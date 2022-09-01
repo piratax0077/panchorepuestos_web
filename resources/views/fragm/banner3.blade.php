@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-6 text-center">
             <h3 class="text-uppercase">Pago en línea</h3>
-            <img src="https://surempresa.com/38-large_default/webpay-cl.jpg" alt="" class="image_transbank">
+            <img src="{{asset('assets/images/webpay.png')}}" alt="" class="image_transbank">
         </div>
     </div>
 </div>

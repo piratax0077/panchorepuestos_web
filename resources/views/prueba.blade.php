@@ -15,5 +15,6 @@
             @include('fragm.banner')
             @include('fragm.banner2')
             @include('fragm.banner3')
+            
 @endsection
 
