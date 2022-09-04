@@ -9,8 +9,8 @@
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
-          <div class="rounded-circle bg-light shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-            <img src="http://panchoserver.ddns.net/storage/imagenes/logo_pos.png" height="60" alt="" style="width: 110px;"
+          <div class="rounded-circle bg-dark shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
+            <img src="{{asset('assets/images/logo_footer_dos.jpeg')}}"  alt="" style="width: 250px;"
                  loading="lazy" />
           </div>
 
@@ -41,7 +41,7 @@
 
         <!--Grid column-->
         <div class="col-lg-6 col-md-6 mb-4 mb-md-0 text-center">
-          <img src="{{asset('assets/images/logo_negro.jpeg')}}" alt="logo" class="logo_footer">
+          <img src="{{asset('assets/images/logo_negro_200.jpeg')}}" alt="logo" class="logo_footer">
         </div>
         <!--Grid column-->
 
@@ -51,13 +51,13 @@
 
           <ul class="list-unstyled">
             <li>
-              <p><i class="fas fa-map-marker-alt pe-2"></i>Arica, Vicuña Mackena, Chile</p>
+              <p><i class="fas fa-map-marker-alt pe-2"></i>Casa Matriz, Riquelme #831, Arica - Chile</p>
             </li>
             <li>
-              <p><i class="fas fa-phone pe-2"></i>+ 01 234 567 89</p>
+              <p><i class="fas fa-phone pe-2"></i>+56 9 44305204</p>
             </li>
             <li>
-              <p><i class="fas fa-envelope pe-2 mb-0"></i>administrador@panchorepuestos.cl</p>
+              <p><i class="fas fa-envelope pe-2 mb-0"></i>ventasonline@panchorepuestos.cl</p>
             </li>
           </ul>
         </div>

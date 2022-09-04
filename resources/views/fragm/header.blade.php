@@ -1,7 +1,7 @@
 <style>
   .icon_header{
     font-size: 30px;
-    margin-right: 20px;
+    margin-right: 5px;
   }
 
   nav{
@@ -26,7 +26,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <img src="{{asset('assets/images/logo_negro.jpeg')}}" alt="" class="logo_header">
+      <img src="{{asset('assets/images/logo_negro_200.jpeg')}}" alt="" class="logo_header">
       <button class="navbar-toggler" style="background: yellow;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,12 +39,12 @@
             <a class="nav-link  nav-link-size active text-light" aria-current="page" href="{{url('repuestos')}}">Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-size  text-light" href="#">Marcas</a>
+            <a class="nav-link nav-link-size  text-light" href="{{url('marcas-repuestos')}}">Marcas</a>
           </li>
           
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-size text-light" href="#" >
-              Ofertas
+            <a class="nav-link nav-link-size text-light" href="{{url('quienes-somos')}}" >
+              Quienes Somos
             </a>
           </li>
           
@@ -62,9 +62,9 @@
           @endif
       @else
           <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
-              </a>
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{Auth::user()->email}}
+            </a>
   
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}"
@@ -78,10 +78,15 @@
                   </form>
               </div>
           </li>
+         
       @endif
         </ul>
        
-        <i class="fa-solid fa-cart-shopping icon_header" style="color: red !important"></i>
+        <a href="{{url('carrito')}}" style="text-decoration: none; margin-right: 5px;"><i class="fa-solid fa-cart-shopping icon_header" style="color: red !important"></i> 
+          <span class="badge bg-danger" style="font-size: 20px;" id="cantidad_items">
+          
+        </span>
+      </a> 
         <form class="d-flex">
           <input class="form-control me-2" type="search" id="tags" placeholder="Buscar" aria-label="Search">
           <button class="btn btn-outline-warning" type="submit" onclick="buscar()">Buscar</button>

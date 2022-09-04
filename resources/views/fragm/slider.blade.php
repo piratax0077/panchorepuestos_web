@@ -6,12 +6,12 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://img.freepik.com/vector-gratis/banner-negro-formas-geometricas-amarillas_1017-32327.jpg?w=2000" class="d-block w-100" alt="...">
+        <img src="{{asset('assets/images/slider12.jpeg')}}" class="d-block w-100" alt="...">
         <div class="carousel-content">
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{asset('assets/images/slider9.jpeg')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('assets/images/slider11.jpeg')}}" class="d-block w-100" alt="...">
         <div class="carousel-content">
         </div>
       </div>

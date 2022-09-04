@@ -20,11 +20,13 @@
                 type:'get',
                 url: url,
                 success: function(repuestos){
-                    
+                        
                         let contador = 0;
                         let fotos = repuestos[1];
-                        
-                        let container = $('#pagination');
+                        if(repuestos[0].length == 0){
+                            $('#container').html('<p class="alert-danger">Sin resultados </p>');
+                        }else{
+                            let container = $('#pagination');
                         container.pagination({
                             dataSource: repuestos[0],
                             pageSize: 10,
@@ -35,13 +37,13 @@
                                         dataHtml += `
                                         <div class="col-md-3 mb-3">
                                         <div class="card">
-                                        <img class="card-img-top repuestos_image"  src="http://panchoserver.ddns.net/storage/`+fotos[4].urlfoto+`" alt="Card image cap">
+                                        <img class="card-img-top repuestos_image"  src="http://panchoserver.ddns.net/storage/`+fotos[contador].urlfoto+`" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">`+item.descripcion+`</h5>
                                             <p class="card-text">$ `+item.precio_venta+`</p>
                                             <p class="card-text">Stock: `+item.stock_actual+`</p>
-                                            <a href="#" class="btn btn-warning">Añadir al carrito</a>
-                                            <a href="/repuesto/`+item.id+`" class="btn btn-primary">Descripción</a>
+                                            
+                                            <a href="/repuesto/`+item.id+`" class="btn btn-warning w-100">Descripción</a>
                                         </div>
                                         </div>
                                     </div>
@@ -56,6 +58,8 @@
                                 $("#container").html(dataHtml);
                             }
                         });
+                        }
+                        
                 },
                 error: function(error){
                     console.log(error.responseText);

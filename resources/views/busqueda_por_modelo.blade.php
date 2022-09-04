@@ -25,11 +25,15 @@
                     
                 },
                 success: function(repuestos){
-                    let contador = 0;
-                        let fotos = repuestos[1];
                         
-                      
-                        let container = $('#pagination');
+                        let fotos = repuestos[1];
+                        if(repuestos[0].length == 0){
+                            
+                            $('#container').empty();
+                            $('#container').append('<p class="alert-danger">Sin resultados</p>');
+                        }else{
+                            let container = $('#pagination');
+                        var contador = 0;
                         container.pagination({
                             dataSource: repuestos[0],
                             pageSize: 10,
@@ -58,6 +62,8 @@
                                 $("#container").html(dataHtml);
                             }
                         });
+                        }
+                        
                 },
                 error: function(error){
                     console.log(error.responseText);
@@ -71,27 +77,9 @@
 
 <p id="mensaje"></p>
 <section class="container py-5">
-    <div class="row">
-        <div class="col-md-2">
-            <p>FIltros</p>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                  Checked checkbox
-                </label>
-              </div>
-        </div>
-        <div class="col-md-10">
-            <div id="container"></div>
-            <div id="pagination"></div>
-        </div>
-    </div>
+
+<div id="container"></div>
+<div id="pagination"></div> 
     
 </section>
 @endsection

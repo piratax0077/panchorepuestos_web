@@ -19,20 +19,18 @@
             <div id="accordion">
                 <h3>La bodega de repuestos más grande del norte de Chile</h3>
                 <div>
-                  <p>
-                  Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                  ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                  amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                  odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                  </p>
+                  <ul>
+                    <li>Experiencia en el negocio</li>
+                    <li>Equipo altamente capacitado en la asesoría de repuestos para vehículos</li>
+                    <li>Estamos comprometidos con la calidad de nuestros repuestos</li>
+                    <li>Enfocados en la mejor atención a nuestros clientes</li>
+                  </ul>
                 </div>
                 <h3>Atendido por sus propios dueños</h3>
                 <div>
                   <p>
-                  Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                  purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                  velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                  suscipit faucibus urna.
+                    Nosotros al estar comprometidos con la mejor atención a nuestros clientes, 
+                    estamos continuamente en nuestro local con el fin de que la experiencia de compra sea la mejor.
                   </p>
                 </div>
                 <h3>Politicas de despacho</h3>
